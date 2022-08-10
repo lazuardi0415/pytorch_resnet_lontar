@@ -1,3 +1,5 @@
+This is a modification of akamaster's implementation for CIFAR10/100. This was intended to be used for my thesis using Amadi's Sundanese Lontar Dataset. 
+
 # Proper ResNet Implementation for CIFAR10/CIFAR100 in Pytorch
 [Torchvision model zoo](https://github.com/pytorch/vision/tree/master/torchvision/models) provides number of implementations of various state-of-the-art architectures, however, most of them are defined and implemented for ImageNet.
 Usually it is straightforward to use the provided models on other datasets, but some cases require manual setup.
