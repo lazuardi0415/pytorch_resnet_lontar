@@ -31,10 +31,13 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import torch.nn.init as init
+import torchvision.models as models
 
 from torch.autograd import Variable
 
-__all__ = ['ResNet', 'resnet20', 'resnet32', 'resnet44', 'resnet56', 'resnet110', 'resnet1202']
+__all__ = ['ResNet', 'resnet20', 'resnet32', 'resnet44', 'resnet56', 'resnet110',
+           'resnet18', 'resnet34', 'resnet50', 'resnet101', 'resnet152',
+           'vgg19', 'alexnet']
 
 def _weights_init(m):
     classname = m.__class__.__name__
@@ -84,7 +87,7 @@ class BasicBlock(nn.Module):
 
 
 class ResNet(nn.Module):
-    def __init__(self, block, num_blocks, num_classes=10):
+    def __init__(self, block, num_blocks, num_classes=28):
         super(ResNet, self).__init__()
         self.in_planes = 16
 
@@ -136,10 +139,28 @@ def resnet56():
 def resnet110():
     return ResNet(BasicBlock, [18, 18, 18])
 
+# predefined architectures from torchvision
 
-def resnet1202():
-    return ResNet(BasicBlock, [200, 200, 200])
+def vgg19():
+    return models.vgg19()
 
+def alexnet():
+    return models.alexnet()
+
+def resnet18():
+    return models.resnet18()
+
+def resnet34():
+    return models.resnet34()
+
+def resnet50():
+    return models.resnet50()
+
+def resnet101():
+    return models.resnet101()
+
+def resnet152():
+    return models.resnet152()
 
 def test(net):
     import numpy as np

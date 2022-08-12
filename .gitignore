@@ -1,0 +1,4 @@
+.venv
+*.bak
+save_*
+pretrained_models/
